@@ -12,7 +12,7 @@ int main()
 
     const double price_per_room{30};
     const double sales_tax{0.06};
-    const int estimate_expiry{30};
+    const int estimate_expiry{30}; //Days
 
     double full_price{};
     double tax_size{};
