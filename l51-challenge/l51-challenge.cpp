@@ -27,7 +27,7 @@ int main()
 
     final_price_small_rooms = number_of_small_rooms * cost_per_small_room;
     final_price_large_rooms = number_of_large_rooms * cost_per_large_room;
-    full_price = number_of_small_rooms + number_of_large_rooms;
+    full_price = final_price_small_rooms + final_price_large_rooms;
     tax_in_money = full_price * tax_rate;
 
     cout<<"\nEstimate for carpet cleaning service."<<endl;
