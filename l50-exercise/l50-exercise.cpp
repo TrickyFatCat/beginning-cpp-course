@@ -14,6 +14,7 @@ int main()
     cout<<"Number of rooms: "<<number_of_rooms<<endl;
     cout<<"Price per room: $"<<30<<endl;
     cout<<"Cost: $" << 30 * number_of_rooms<<endl;
+    cout<<"Tax: $" << 30 * number_of_rooms * 0.06 << endl;
 
     cout<<endl;
     return 0;
