@@ -22,8 +22,8 @@ int main()
 
     vector <vector<int>> vector_2d;
 
-    vector2d.push_back(vector1);
-    vector2d.push_back(vector2);
+    vector_2d.push_back(vector1);
+    vector_2d.push_back(vector2);
 
     cout<<"First element of vector_2d: "<<vector_2d.at(0).at(0)<<endl;
     cout<<"Second element of vector_2d: "<<vector_2d.at(0).at(1)<<endl;
