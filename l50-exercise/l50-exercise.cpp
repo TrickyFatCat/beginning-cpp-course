@@ -15,6 +15,9 @@ int main()
     cout<<"Price per room: $"<<30<<endl;
     cout<<"Cost: $" << 30 * number_of_rooms<<endl;
     cout<<"Tax: $" << 30 * number_of_rooms * 0.06 << endl;
+    cout<<"=============================================="<<endl;
+    cout<<"Total estimate: $"<<(30 * number_of_rooms) + (30 * number_of_rooms * 0.06)<<endl;
+    cout<<"This estimation is valid for "<<30<<" days."<<endl;
 
     cout<<endl;
     return 0;
