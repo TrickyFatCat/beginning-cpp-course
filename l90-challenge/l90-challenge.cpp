@@ -20,7 +20,7 @@ int main()
         cout<<"=========================="<<endl;
         cout<<"A - add number to the set"<<endl;
         cout<<"P - print all numbers in the set"<<endl;
-        cout<<"C - clean set"<<endl;
+        cout<<"C - clear set"<<endl;
         cout<<"M - calculate and print mean"<<endl;
         cout<<"S - find and print the smallest number"<<endl;
         cout<<"L - find and print the largest number"<<endl;
@@ -43,7 +43,46 @@ int main()
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
+
+            case 'P':
+            case 'p':
+                cout<<"--------------------------"<<endl;
+                cout<<"--------------------------"<<endl;
+                cout<<endl;
+                break;
+
+            case 'C':
+            case 'c':
+                cout<<"--------------------------"<<endl;
+                cout<<"Start clearnig set..."<<endl;
+                numbers.clear();
+                cout<<"Done!"<<endl;
+                cout<<"All elements were deleted."
+                cout<<"--------------------------"<<endl;
+                cout<<endl;
+                break;
             
+            case 'M':
+            case 'm':
+                cout<<"--------------------------"<<endl;
+                cout<<"--------------------------"<<endl;
+                cout<<endl;
+                break;
+
+            case 'S':
+            case 's':
+                cout<<"--------------------------"<<endl;
+                cout<<"--------------------------"<<endl;
+                cout<<endl;
+                break;
+
+            case 'L':
+            case 'l':
+                cout<<"--------------------------"<<endl;
+                cout<<"--------------------------"<<endl;
+                cout<<endl;
+                break;
+
             default:
                 cout<<"--------------------------"<<endl;
                 cout<<"\nUnknown option, please try again."<<endl;
