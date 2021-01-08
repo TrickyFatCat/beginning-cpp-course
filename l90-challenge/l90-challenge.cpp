@@ -8,12 +8,12 @@ int main()
 {
     const string error_empty_set = "The set is empty. Please add atleast 1 number to the set.";
 
-    vector <int> numbers {};
-    int new_number {};
-    int smallest {};
-    int largest {};
+    vector <double> numbers {};
+    double new_number {};
+    double smallest {};
+    double largest {};
     double mean {};
-    int sum {};
+    double sum {};
     char option {};
 
     cout<<setprecision(2);
@@ -41,15 +41,25 @@ int main()
             case 'a':
                 cout<<"--------------------------"<<endl;
                 cout<<"Please enter number: ";
-
                 cin>>new_number;
 
-                cout<<"Adding number to the set..."<<endl;
+                if (cin.fail())
+                {
+                    cout<<"\nCan't add characters to the set!"<<endl;
+                    cout<<"Please enter a integer or decimal number to the set."<<endl;
+                    cin.clear();
+                    break;
+                }
+                else
+                {           
+                    cout<<"Adding number to the set..."<<endl;
 
-                numbers.push_back(new_number);
+                    numbers.push_back(new_number);
 
-                cout<<"Done!"<<endl;
-                cout<<new_number<<" was successfully added to the set."<<endl;
+                    cout<<"Done!"<<endl;
+                    cout<<new_number<<" was successfully added to the set."<<endl;
+                }
+
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
@@ -86,7 +96,7 @@ int main()
             case 'M':
             case 'm':
                 cout<<"--------------------------"<<endl;
-                
+
                 if (numbers.size() > 0)
                 {
                     cout<<"Calculating mean of the set..."<<endl;
