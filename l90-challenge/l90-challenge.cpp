@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <iomanip>
 
 using namespace std;
 
@@ -9,9 +10,11 @@ int main()
     int new_number {};
     int smallest {};
     int largest {};
-    int mean {};
+    double mean {};
     int sum {};
     char option {};
+
+    cout<<setprecision(2);
 
     cout<<"Welcome to the Mean Calculator 1.0!"<<endl;
 
@@ -88,7 +91,7 @@ int main()
                 {
                     sum += val;
                 }
-                mean = sum / numbers.size();
+                mean = static_cast<double>(sum) / numbers.size();
 
                 cout<<"Done!"<<endl;
                 cout<<"The mean of the set is: "<<mean<<endl;
