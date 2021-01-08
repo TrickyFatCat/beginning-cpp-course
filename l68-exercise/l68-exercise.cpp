@@ -14,7 +14,7 @@ int main()
     total = num1 + num2 + num3;
 
     double average {0.0};
-    average = total/count;
+    average = static_cast<double>(total)/count;
 
     cout<<"The numbers were: "<<num1<<", "<<num2<<", "<<num3<<endl;
     cout<<"The sum of these numbers is: "<<total<<endl;
