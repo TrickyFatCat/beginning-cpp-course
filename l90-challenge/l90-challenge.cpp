@@ -6,6 +6,7 @@ using namespace std;
 int main()
 {
     vector <int> numbers {};
+    int new_number {};
     int smallest {};
     int largest {};
     int mean {};
@@ -27,6 +28,29 @@ int main()
         cout<<"=========================="<<endl;
 
         cin>>option;
+
+        switch (option)
+        {
+            case 'A':
+            case 'a':
+                cout<<"--------------------------"<<endl;
+                cout<<"Please enter number: ";
+                cin>>new_number;
+                cout<<"Adding number to the set..."<<endl;
+                numbers.push_back(new_number);
+                cout<<"Done!"<<endl;
+                cout<<new_number<<" was successfully added to the set."<<endl;
+                cout<<"--------------------------"<<endl;
+                cout<<endl;
+                break;
+            
+            default:
+                cout<<"--------------------------"<<endl;
+                cout<<"\nUnknown option, please try again."<<endl;
+                cout<<"--------------------------"<<endl;
+                cout<<endl;
+                break;
+        }
     } while (option != 'Q' && option != 'q');
     
 
