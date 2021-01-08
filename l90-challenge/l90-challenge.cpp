@@ -124,16 +124,22 @@ int main()
                 cout<<endl;
                 break;
 
+            case 'Q':
+            case 'q':
+                cout<<"--------------------------"<<endl;
+                cout<<"Thank you!"<<endl;
+                cout<<"--------------------------"<<endl;
+                cout<<endl;
+                break;
+
             default:
                 cout<<"--------------------------"<<endl;
-                cout<<"\nUnknown option, please try again."<<endl;
+                cout<<"Unknown option, please try again."<<endl;
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
         }
     } while (option != 'Q' && option != 'q');
     
-
-    cout<<endl;
     return 0;
 }
