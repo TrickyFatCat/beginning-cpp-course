@@ -19,6 +19,17 @@ int main()
         data.push_back(data_item);
     }
 
+    cout<<"\nDisplaying Histogram"<<endl;
+    for(auto val: data)
+    {
+        for(int i{1}; i <= val; i++)
+        {
+            cout<<"-";
+        }
+        
+        cout<<endl;
+    }
+
     cout<<endl;
     return 0;
 }
