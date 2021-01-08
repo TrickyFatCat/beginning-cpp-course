@@ -6,6 +6,8 @@ using namespace std;
 
 int main()
 {
+    const string error_empty_set = "The set is empty. Please add atleast 1 number to the set.";
+
     vector <int> numbers {};
     int new_number {};
     int smallest {};
@@ -85,16 +87,25 @@ int main()
             case 'm':
                 cout<<"--------------------------"<<endl;
                 
-                cout<<"Calculating mean of the set..."<<endl;
-
-                for (auto val: numbers)
+                if (numbers.size() > 0)
                 {
-                    sum += val;
-                }
-                mean = static_cast<double>(sum) / numbers.size();
+                    cout<<"Calculating mean of the set..."<<endl;
 
-                cout<<"Done!"<<endl;
-                cout<<"The mean of the set is: "<<mean<<endl;
+                    for (auto val: numbers)
+                    {
+                        sum += val;
+                    }
+                    mean = static_cast<double>(sum) / numbers.size();
+
+                    cout<<"Done!"<<endl;
+                    cout<<"The mean of the set is: "<<mean<<endl;
+                }
+                else
+                {
+                    cout<<"Can't calculate the mean."<<endl;
+                    cout<<error_empty_set<<endl;
+                }
+                
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
@@ -102,17 +113,27 @@ int main()
             case 'S':
             case 's':
                 cout<<"--------------------------"<<endl;
-                cout<<"Looking for the smallest number..."<<endl;
-                
-                smallest = numbers.at(0);
-                for(auto val: numbers)
-                {
-                    if (val < smallest)
-                        smallest = val;
-                }
 
-                cout<<"Done!"<<endl;
-                cout<<"The smallest number is: "<<smallest<<endl;
+                if (numbers.size() > 0)
+                {
+                    cout<<"Looking for the smallest number..."<<endl;
+                    
+                    smallest = numbers.at(0);
+                    for(auto val: numbers)
+                    {
+                        if (val < smallest)
+                            smallest = val;
+                    }
+
+                    cout<<"Done!"<<endl;
+                    cout<<"The smallest number is: "<<smallest<<endl;
+                }
+                else
+                {
+                    cout<<"Can't find the smallest."<<endl;
+                    cout<<error_empty_set<<endl;
+                }
+                
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
@@ -120,17 +141,27 @@ int main()
             case 'L':
             case 'l':
                 cout<<"--------------------------"<<endl;
-                cout<<"Looking for the largest number..."<<endl;
-                
-                largest = numbers.at(0);
-                for(auto val: numbers)
+
+                if (numbers.size() > 0)
                 {
-                    if (val > largest)
-                        largest = val;
+                    cout<<"Looking for the largest number..."<<endl;
+                    
+                    largest = numbers.at(0);
+                    for(auto val: numbers)
+                    {
+                        if (val > largest)
+                            largest = val;
+                    }
+
+                    cout<<"Done!"<<endl;
+                    cout<<"The largest number is: "<<largest<<endl;
+                }
+                else
+                {
+                    cout<<"Can't find the smallest."<<endl;
+                    cout<<error_empty_set<<endl;
                 }
 
-                cout<<"Done!"<<endl;
-                cout<<"The largest number is: "<<largest<<endl;
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
