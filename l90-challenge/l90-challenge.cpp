@@ -10,6 +10,7 @@ int main()
     int smallest {};
     int largest {};
     int mean {};
+    int sum {};
     char option {};
 
     cout<<"Welcome to the Mean Calculator 1.0!"<<endl;
@@ -80,7 +81,6 @@ int main()
             case 'M':
             case 'm':
                 cout<<"--------------------------"<<endl;
-                int sum {};
                 
                 cout<<"Calculating mean of the set..."<<endl;
 
@@ -99,6 +99,17 @@ int main()
             case 'S':
             case 's':
                 cout<<"--------------------------"<<endl;
+                cout<<"Looking for the smallest number..."<<endl;
+                
+                smallest = numbers.at(0);
+                for(auto val: numbers)
+                {
+                    if (val < smallest)
+                        smallest = val;
+                }
+
+                cout<<"Done!"<<endl;
+                cout<<"The smallest number is: "<<smallest<<endl;
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
