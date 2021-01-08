@@ -59,6 +59,16 @@ int main()
     cout<<"First element of vector1: "<<vector1.at(0)<<endl;
     cout<<"================================================"<<endl;
 
+    cout<<"\nChecking vector_2d..."<<endl;
+    cout<<"Done!"<<endl;
+
+    cout<<"================================================"<<endl;
+    cout<<"First element of vector_2d: "<<vector_2d.at(0).at(0)<<endl;
+    cout<<"Second element of vector_2d: "<<vector_2d.at(0).at(1)<<endl;
+    cout<<"Third element of vector_2d: "<<vector_2d.at(1).at(0)<<endl;
+    cout<<"Fourth element of vector_2d: "<<vector_2d.at(1).at(1)<<endl;
+    cout<<"================================================"<<endl;
+
     cout<<endl;
     return 0;
 }
