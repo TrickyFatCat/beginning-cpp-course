@@ -120,6 +120,17 @@ int main()
             case 'L':
             case 'l':
                 cout<<"--------------------------"<<endl;
+                cout<<"Looking for the largest number..."<<endl;
+                
+                largest = numbers.at(0);
+                for(auto val: numbers)
+                {
+                    if (val > largest)
+                        largest = val;
+                }
+
+                cout<<"Done!"<<endl;
+                cout<<"The largest number is: "<<largest<<endl;
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
