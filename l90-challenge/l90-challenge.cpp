@@ -35,9 +35,13 @@ int main()
             case 'a':
                 cout<<"--------------------------"<<endl;
                 cout<<"Please enter number: ";
+
                 cin>>new_number;
+
                 cout<<"Adding number to the set..."<<endl;
+
                 numbers.push_back(new_number);
+
                 cout<<"Done!"<<endl;
                 cout<<new_number<<" was successfully added to the set."<<endl;
                 cout<<"--------------------------"<<endl;
@@ -49,10 +53,12 @@ int main()
                 cout<<"--------------------------"<<endl;
                 cout<<"Printing set content."<<endl;
                 cout<<"[";
+
                 for(auto val: numbers)
                 {
                     cout<<" "<<val<<" ";
                 }
+
                 cout<<"]"<<endl;
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
@@ -62,7 +68,9 @@ int main()
             case 'c':
                 cout<<"--------------------------"<<endl;
                 cout<<"Start clearnig set..."<<endl;
+
                 numbers.clear();
+
                 cout<<"Done!"<<endl;
                 cout<<"All elements were deleted."<<endl;
                 cout<<"--------------------------"<<endl;
@@ -72,6 +80,18 @@ int main()
             case 'M':
             case 'm':
                 cout<<"--------------------------"<<endl;
+                int sum {};
+                
+                cout<<"Calculating mean of the set..."<<endl;
+
+                for (auto val: numbers)
+                {
+                    sum += val;
+                }
+                mean = sum / numbers.size();
+
+                cout<<"Done!"<<endl;
+                cout<<"The mean of the set is: "<<mean<<endl;
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
