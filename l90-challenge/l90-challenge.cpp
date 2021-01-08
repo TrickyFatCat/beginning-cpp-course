@@ -43,16 +43,15 @@ int main()
                 cout<<"Please enter number: ";
                 cin>>new_number;
 
-                if (cin.fail())
+                if (cin.fail() || cin.eof())
                 {
                     cout<<"\nCan't add characters to the set!"<<endl;
                     cout<<"Please enter a integer or decimal number to the set."<<endl;
                     cin.clear();
-                    break;
                 }
                 else
                 {           
-                    cout<<"Adding number to the set..."<<endl;
+                    cout<<"\nAdding number to the set..."<<endl;
 
                     numbers.push_back(new_number);
 
