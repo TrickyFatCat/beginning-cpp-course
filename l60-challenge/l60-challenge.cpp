@@ -17,6 +17,7 @@ int main()
     vector1.push_back(new_element);
     
     cout<<"================================================"<<endl;
+    cout<<"Vector1 contains "<<vector1.size()<<" elements"<<endl;
     cout<<"First element of vector1: "<<vector1.at(0)<<endl;
     cout<<"Second element of vector1: "<<vector1.at(1)<<endl;
     cout<<"================================================"<<endl;
@@ -30,6 +31,7 @@ int main()
     vector2.push_back(new_element);
 
     cout<<"================================================"<<endl;
+    cout<<"Vector2 contains "<<vector2.size()<<" elements"<<endl;
     cout<<"First element of vector2: "<<vector2.at(0)<<endl;
     cout<<"Second element of vector2: "<<vector2.at(1)<<endl;
     cout<<"================================================"<<endl;
