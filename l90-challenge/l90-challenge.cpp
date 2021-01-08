@@ -47,6 +47,13 @@ int main()
             case 'P':
             case 'p':
                 cout<<"--------------------------"<<endl;
+                cout<<"Printing set content."<<endl;
+                cout<<"[";
+                for(auto val: numbers)
+                {
+                    cout<<" "<<val<<" ";
+                }
+                cout<<"]"<<endl;
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
@@ -57,7 +64,7 @@ int main()
                 cout<<"Start clearnig set..."<<endl;
                 numbers.clear();
                 cout<<"Done!"<<endl;
-                cout<<"All elements were deleted."
+                cout<<"All elements were deleted."<<endl;
                 cout<<"--------------------------"<<endl;
                 cout<<endl;
                 break;
