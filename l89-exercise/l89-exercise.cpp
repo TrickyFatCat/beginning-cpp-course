@@ -24,9 +24,12 @@ int main()
     {
         for(int i{1}; i <= val; i++)
         {
-            cout<<"-";
+            if (i % 5 == 0)
+                cout<<"|";
+            else
+                cout<<"-";
         }
-        
+
         cout<<endl;
     }
 
