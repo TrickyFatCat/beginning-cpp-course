@@ -11,7 +11,7 @@ void print_outline();
 void process_adding(vector<double> &numbers);
 void add_number_to_set(vector<double> &numbers, double new_number);
 void print_set_content(const vector<double> &numbers);
-
+void clean_set(vector<double> &numbers);
 
 int main()
 {
@@ -55,15 +55,7 @@ int main()
 
             case 'C':
             case 'c':
-                print_outline();
-                cout<<"Start clearnig set..."<<endl;
-
-                numbers.clear();
-
-                cout<<"Done!"<<endl;
-                cout<<"All elements were deleted."<<endl;
-                print_outline();
-                cout<<endl;
+                clean_set(numbers);
                 break;
             
             case 'M':
@@ -219,6 +211,18 @@ void print_set_content(const vector<double> &numbers)
     }
 
     cout<<"]\n";
+    print_outline();
+    cout<<endl;
+}
+
+void clean_set(vector<double> &numbers)
+{
+    print_outline();
+    cout<<"Start clearnig set...\n";
+
+    numbers.clear();
+
+    cout<<"Done!\n"<<"All elements were deleted.\n";
     print_outline();
     cout<<endl;
 }
