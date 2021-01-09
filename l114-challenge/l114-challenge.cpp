@@ -8,14 +8,23 @@ const string result_outline(27, '-');
 const string error_empty_set = "The set is empty. Please add atleast 1 number to the set.\n";
 
 void print_outline();
+
+// Add new number
 void process_adding(vector<double> &numbers);
 void add_number_to_set(vector<double> &numbers, double new_number);
+// Print the set
 void print_set_content(const vector<double> &numbers);
+// Clean the set
 void clean_set(vector<double> &numbers);
+// Mean calculation
 void process_mean_calculation(const vector<double> &numbers);
 void calc_mean(const vector<double> &numbers);
+// Smallest searching
 void process_search_smallest(const vector<double> &numbers);
 void find_smallest(const vector<double> &numbers);
+// Largest searching
+void process_search_largest(const vector<double> &numbers);
+void find_largest(const vector<double> &numbers);
 
 int main()
 {
@@ -74,30 +83,7 @@ int main()
 
             case 'L':
             case 'l':
-                print_outline();
-
-                if (numbers.size() > 0)
-                {
-                    cout<<"Looking for the largest number..."<<endl;
-                    
-                    largest = numbers.at(0);
-                    for(auto val: numbers)
-                    {
-                        if (val > largest)
-                            largest = val;
-                    }
-
-                    cout<<"Done!"<<endl;
-                    cout<<"The largest number is: "<<largest<<endl;
-                }
-                else
-                {
-                    cout<<"Can't find the smallest."<<endl;
-                    cout<<error_empty_set<<endl;
-                }
-
-                print_outline();
-                cout<<endl;
+                process_search_largest(numbers);
                 break;
 
             case 'Q':
@@ -253,4 +239,38 @@ void find_smallest(const vector<double> &numbers)
 
     cout<<"Done!\n"
         <<"The smallest number is: "<<smallest<<endl;
+}
+
+void process_search_largest(const vector<double> &numbers)
+{
+    print_outline();
+
+    if (numbers.size() > 0)
+    {
+        find_largest(numbers);
+    }
+    else
+    {
+        cout<<"Can't find the smallest.\n"
+            <<error_empty_set;
+    }
+
+    print_outline();
+}
+
+void find_largest(const vector<double> &numbers)
+{
+    double largest {};
+
+    cout<<"Looking for the largest number...\n";
+    
+    largest = numbers.at(0);
+    for(auto val: numbers)
+    {
+        if (val > largest)
+            largest = val;
+    }
+
+    cout<<"Done!\n"
+        <<"The largest number is: "<<largest<<endl;
 }
