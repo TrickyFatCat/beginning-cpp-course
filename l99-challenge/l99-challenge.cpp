@@ -7,10 +7,12 @@ int main()
 {
     const string alphabet {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
     const string key {"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr"};
+    const string result_underliner (10, '-');
     string message {};
     string message_encrypted {};
+    string message_decrypted {};
 
-    cout<<"Welcome to the Cipher'O'Tron v1.0!"<<endl;
+    cout<<"Welcome to the Crypto'O'Tron v1.0!"<<endl;
     cout<<"Please enter your secret message:"<<endl;
     getline(cin, message);
 
@@ -33,9 +35,31 @@ int main()
 
     cout<< "Done!"<<endl;
     cout<< "Encrypted message:"<<endl;
-    cout<< "-------------------------------\n";
+    cout<< result_underliner<<endl;
     cout<< message_encrypted<<endl;
-    cout<< "-------------------------------\n;
+    cout<< result_underliner<<endl;
+
+    cout<<"Decrypting message..."<<endl;
+
+    for (auto character: message_encrypted)
+    {
+        int new_char_pos = key.find(character);
+
+        if (new_char_pos != string::npos)
+        {
+            message_decrypted += alphabet.at(new_char_pos);
+        }
+        else
+        {
+            message_decrypted += character;
+        }
+    }
+
+    cout<< "Done!"<<endl;
+    cout<< "Decrypted message:"<<endl;
+    cout<< result_underliner<<endl;
+    cout<< message_decrypted<<endl;
+    cout<< result_underliner<<endl;
 
     cout<<endl;
     return 0;
