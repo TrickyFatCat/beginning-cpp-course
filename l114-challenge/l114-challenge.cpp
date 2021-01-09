@@ -10,6 +10,7 @@ const string error_empty_set = "The set is empty. Please add atleast 1 number to
 void print_outline();
 void process_adding(vector<double> &numbers);
 void add_number_to_set(vector<double> &numbers, double new_number);
+void print_set_content(const vector<double> &numbers);
 
 
 int main()
@@ -49,18 +50,7 @@ int main()
 
             case 'P':
             case 'p':
-                print_outline();
-                cout<<"Printing set content."<<endl;
-                cout<<"[";
-
-                for(auto val: numbers)
-                {
-                    cout<<" "<<val<<" ";
-                }
-
-                cout<<"]"<<endl;
-                print_outline();
-                cout<<endl;
+                print_set_content(numbers);
                 break;
 
             case 'C':
@@ -215,4 +205,20 @@ void add_number_to_set(vector<double> &numbers, double new_number)
 
     cout<<"Done!"<<endl;
     cout<<new_number<<" was successfully added to the set.\n";
+}
+
+void print_set_content(const vector<double> &numbers)
+{
+    print_outline();
+    cout<<"Printing set content.\n"
+        <<"[";
+
+    for(auto val: numbers)
+    {
+        cout<<" "<<val<<" ";
+    }
+
+    cout<<"]\n";
+    print_outline();
+    cout<<endl;
 }
