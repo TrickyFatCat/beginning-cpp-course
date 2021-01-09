@@ -25,6 +25,9 @@ void find_smallest(const vector<double> &numbers);
 // Largest searching
 void process_search_largest(const vector<double> &numbers);
 void find_largest(const vector<double> &numbers);
+// Quit and error
+void process_quitting();
+void process_wrong_option();
 
 int main()
 {
@@ -84,17 +87,11 @@ int main()
 
             case 'Q':
             case 'q':
-                print_outline();
-                cout<<"Thank you!"<<endl;
-                print_outline();
-                cout<<endl;
+                process_quitting();
                 break;
 
             default:
-                print_outline();
-                cout<<"Unknown option, please try again."<<endl;
-                print_outline();
-                cout<<endl;
+                process_wrong_option();
                 break;
         }
     } while (option != 'Q' && option != 'q');
@@ -269,4 +266,18 @@ void find_largest(const vector<double> &numbers)
 
     cout<<"Done!\n"
         <<"The largest number is: "<<largest<<endl;
+}
+
+void process_quitting()
+{
+    print_outline();
+    cout<<"Thank you!\n";
+    print_outline();
+}
+
+void process_wrong_option()
+{
+    print_outline();
+    cout<<"Unknown option, please try again.\n";
+    print_outline();
 }
