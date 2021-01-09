@@ -7,59 +7,65 @@ int main()
 {
     const string alphabet {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
     const string key {"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr"};
-    const string result_underliner (10, '-');
+    const string result_underliner (30, '-');
     string message {};
     string message_encrypted {};
     string message_decrypted {};
 
-    cout<<"Welcome to the Crypto'O'Tron v1.0!"<<endl;
-    cout<<"Please enter your secret message:"<<endl;
+    cout<<"Welcome to the Crypto'O'Tron v1.0!\n"
+        <<"Please enter your secret message.\n";
+
     getline(cin, message);
 
-    cout<<"Encrypting message..."<<endl;
+    cout<<"\nEncrypting message..."<<endl;
 
     for(auto character: message)
     {
         int new_char_pos = alphabet.find(character);
+        char new_char {};
 
         if (new_char_pos != string::npos)
         {
-            message_encrypted += key.at(new_char_pos);
+            new_char = key.at(new_char_pos);
         }
         else
         {
-            message_encrypted += character;
+            new_char = character;
         }
         
+        message_encrypted += new_char;
     }
 
-    cout<< "Done!"<<endl;
-    cout<< "Encrypted message:"<<endl;
-    cout<< result_underliner<<endl;
-    cout<< message_encrypted<<endl;
-    cout<< result_underliner<<endl;
+    cout<< "Done!\n"
+        <<"Encrypted message:\n"
+        <<result_underliner + '\n'
+        <<message_encrypted + '\n'
+        <<result_underliner + '\n';
 
-    cout<<"Decrypting message..."<<endl;
+    cout<<"\nDecrypting message..."<<endl;
 
     for (auto character: message_encrypted)
     {
         int new_char_pos = key.find(character);
+        char new_char {};
 
         if (new_char_pos != string::npos)
         {
-            message_decrypted += alphabet.at(new_char_pos);
+            new_char = alphabet.at(new_char_pos);
         }
         else
         {
-            message_decrypted += character;
+            new_char += character;
         }
+
+        message_decrypted += new_char;
     }
 
-    cout<< "Done!"<<endl;
-    cout<< "Decrypted message:"<<endl;
-    cout<< result_underliner<<endl;
-    cout<< message_decrypted<<endl;
-    cout<< result_underliner<<endl;
+    cout<< "Done!\n"
+        <<"Decrypted message:\n"
+        <<result_underliner + '\n'
+        <<message_decrypted + '\n'
+        <<result_underliner + '\n';
 
     cout<<endl;
     return 0;
