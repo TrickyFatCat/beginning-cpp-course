@@ -4,12 +4,17 @@
 
 using namespace std;
 
+const string result_outline(27, '-');
+const string error_empty_set = "The set is empty. Please add atleast 1 number to the set.";
+
+void print_outline();
+void process_adding(vector<double> &numbers);
+void add_number_to_set(vector<double> &numbers, double new_number);
+
+
 int main()
 {
-    const string error_empty_set = "The set is empty. Please add atleast 1 number to the set.";
-
     vector <double> numbers {};
-    double new_number {};
     double smallest {};
     double largest {};
     double mean {};
@@ -39,33 +44,12 @@ int main()
         {
             case 'A':
             case 'a':
-                cout<<"--------------------------"<<endl;
-                cout<<"Please enter number: ";
-                cin>>new_number;
-
-                if (cin.fail() || cin.eof())
-                {
-                    cout<<"\nCan't add characters to the set!"<<endl;
-                    cout<<"Please enter a integer or decimal number to the set."<<endl;
-                    cin.clear();
-                }
-                else
-                {           
-                    cout<<"\nAdding number to the set..."<<endl;
-
-                    numbers.push_back(new_number);
-
-                    cout<<"Done!"<<endl;
-                    cout<<new_number<<" was successfully added to the set."<<endl;
-                }
-
-                cout<<"--------------------------"<<endl;
-                cout<<endl;
+                process_adding(numbers);
                 break;
 
             case 'P':
             case 'p':
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<"Printing set content."<<endl;
                 cout<<"[";
 
@@ -75,26 +59,26 @@ int main()
                 }
 
                 cout<<"]"<<endl;
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<endl;
                 break;
 
             case 'C':
             case 'c':
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<"Start clearnig set..."<<endl;
 
                 numbers.clear();
 
                 cout<<"Done!"<<endl;
                 cout<<"All elements were deleted."<<endl;
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<endl;
                 break;
             
             case 'M':
             case 'm':
-                cout<<"--------------------------"<<endl;
+                print_outline();
 
                 if (numbers.size() > 0)
                 {
@@ -115,13 +99,13 @@ int main()
                     cout<<error_empty_set<<endl;
                 }
                 
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<endl;
                 break;
 
             case 'S':
             case 's':
-                cout<<"--------------------------"<<endl;
+                print_outline();
 
                 if (numbers.size() > 0)
                 {
@@ -143,13 +127,13 @@ int main()
                     cout<<error_empty_set<<endl;
                 }
                 
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<endl;
                 break;
 
             case 'L':
             case 'l':
-                cout<<"--------------------------"<<endl;
+                print_outline();
 
                 if (numbers.size() > 0)
                 {
@@ -171,26 +155,64 @@ int main()
                     cout<<error_empty_set<<endl;
                 }
 
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<endl;
                 break;
 
             case 'Q':
             case 'q':
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<"Thank you!"<<endl;
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<endl;
                 break;
 
             default:
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<"Unknown option, please try again."<<endl;
-                cout<<"--------------------------"<<endl;
+                print_outline();
                 cout<<endl;
                 break;
         }
     } while (option != 'Q' && option != 'q');
     
     return 0;
+}
+
+void print_outline()
+{
+    cout<<result_outline + "\n";
+}
+
+void process_adding(vector<double> &numbers)
+{
+    double new_number {};
+
+    print_outline();
+    cout<<"Please enter number: ";
+    cin>>new_number;
+
+    if (cin.fail() || cin.eof())
+    {
+        cout<<"\nCan't add characters to the set!\n"
+            <<"Please enter a integer or decimal number to the set.\n";
+        cin.clear();
+    }
+    else
+    {           
+        add_number_to_set(numbers, new_number);
+    }
+
+    print_outline();
+    cout<<endl;
+}
+
+void add_number_to_set(vector<double> &numbers, double new_number)
+{
+    cout<<"\nAdding number to the set...\n";
+
+    numbers.push_back(new_number);
+
+    cout<<"Done!"<<endl;
+    cout<<new_number<<" was successfully added to the set.\n";
 }
