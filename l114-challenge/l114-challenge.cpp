@@ -14,6 +14,8 @@ void print_set_content(const vector<double> &numbers);
 void clean_set(vector<double> &numbers);
 void process_mean_calculation(const vector<double> &numbers);
 void calc_mean(const vector<double> &numbers);
+void process_search_smallest(const vector<double> &numbers);
+void find_smallest(const vector<double> &numbers);
 
 int main()
 {
@@ -67,30 +69,7 @@ int main()
 
             case 'S':
             case 's':
-                print_outline();
-
-                if (numbers.size() > 0)
-                {
-                    cout<<"Looking for the smallest number..."<<endl;
-                    
-                    smallest = numbers.at(0);
-                    for(auto val: numbers)
-                    {
-                        if (val < smallest)
-                            smallest = val;
-                    }
-
-                    cout<<"Done!"<<endl;
-                    cout<<"The smallest number is: "<<smallest<<endl;
-                }
-                else
-                {
-                    cout<<"Can't find the smallest."<<endl;
-                    cout<<error_empty_set<<endl;
-                }
-                
-                print_outline();
-                cout<<endl;
+                process_search_smallest(numbers);
                 break;
 
             case 'L':
@@ -240,4 +219,38 @@ void calc_mean(const vector<double> &numbers)
 
     cout<<"Done!\n"
         <<"The mean of the set is: "<<mean<<endl;
+}
+
+void process_search_smallest(const vector<double> &numbers)
+{
+    print_outline();
+
+    if (numbers.size() > 0)
+    {
+        find_smallest(numbers);
+    }
+    else
+    {
+        cout<<"Can't find the smallest.\n"
+            <<error_empty_set;
+    }
+    
+    print_outline();
+}
+
+void find_smallest(const vector<double> &numbers)
+{
+    double smallest {};
+
+    cout<<"Looking for the smallest number..."<<endl;
+    
+    smallest = numbers.at(0);
+    for(auto val: numbers)
+    {
+        if (val < smallest)
+            smallest = val;
+    }
+
+    cout<<"Done!\n"
+        <<"The smallest number is: "<<smallest<<endl;
 }
