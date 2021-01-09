@@ -7,6 +7,9 @@ using namespace std;
 const string result_outline = "--------------------------\n";
 const string error_empty_set = "The set is empty. Please add atleast 1 number to the set.\n";
 
+// Menu
+void draw_menu();
+void process_query(const char &option);
 // Add new number
 void process_adding(vector<double> &numbers);
 void add_number_to_set(vector<double> &numbers, double new_number);
@@ -38,17 +41,7 @@ int main()
 
     do
     {
-        cout<<"Please, choose the option:"<<endl;
-        cout<<"=========================="<<endl;
-        cout<<"A - add number to the set"<<endl;
-        cout<<"P - print all numbers in the set"<<endl;
-        cout<<"C - clear set"<<endl;
-        cout<<"M - calculate and print mean"<<endl;
-        cout<<"S - find and print the smallest number"<<endl;
-        cout<<"L - find and print the largest number"<<endl;
-        cout<<"Q - Quit the program"<<endl;
-        cout<<"=========================="<<endl;
-
+        draw_menu();
         cin>>option;
 
         switch (option)
@@ -95,6 +88,21 @@ int main()
     } while (option != 'Q' && option != 'q');
     
     return 0;
+}
+
+void draw_menu()
+{
+    cout<<"Please, choose the option:\n"
+        <<"==========================\n"
+        <<"A - add number to the set\n"
+        <<"P - print all numbers in the set\n"
+        <<"C - clear set\n"
+        <<"M - calculate and print mean\n"
+        <<"S - find and print the smallest number\n"
+        <<"L - find and print the largest number\n"
+        <<"Q - Quit the program\n"
+        <<"==========================\n";
+
 }
 
 void process_adding(vector<double> &numbers)
@@ -274,3 +282,4 @@ void process_wrong_option()
     cout<<"Unknown option, please try again.\n";
     cout<<result_outline;
 }
+
