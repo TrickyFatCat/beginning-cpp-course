@@ -4,10 +4,8 @@
 
 using namespace std;
 
-const string result_outline(27, '-');
+const string result_outline = "--------------------------\n";
 const string error_empty_set = "The set is empty. Please add atleast 1 number to the set.\n";
-
-void print_outline();
 
 // Add new number
 void process_adding(vector<double> &numbers);
@@ -99,16 +97,11 @@ int main()
     return 0;
 }
 
-void print_outline()
-{
-    cout<<result_outline + "\n";
-}
-
 void process_adding(vector<double> &numbers)
 {
     double new_number {};
 
-    print_outline();
+    cout<<result_outline;
     cout<<"Please enter number: ";
     cin>>new_number;
 
@@ -123,7 +116,7 @@ void process_adding(vector<double> &numbers)
         add_number_to_set(numbers, new_number);
     }
 
-    print_outline();
+    cout<<result_outline;
     cout<<endl;
 }
 
@@ -139,7 +132,7 @@ void add_number_to_set(vector<double> &numbers, double new_number)
 
 void print_set_content(const vector<double> &numbers)
 {
-    print_outline();
+    cout<<result_outline;
     cout<<"Printing set content.\n"
         <<"[";
 
@@ -149,25 +142,25 @@ void print_set_content(const vector<double> &numbers)
     }
 
     cout<<"]\n";
-    print_outline();
+    cout<<result_outline;
     cout<<endl;
 }
 
 void clean_set(vector<double> &numbers)
 {
-    print_outline();
+    cout<<result_outline;
     cout<<"Start clearnig set...\n";
 
     numbers.clear();
 
     cout<<"Done!\n"<<"All elements were deleted.\n";
-    print_outline();
+    cout<<result_outline;
     cout<<endl;
 }
 
 void process_mean_calculation(const vector<double> &numbers)
 {
-    print_outline();
+    cout<<result_outline;
 
     if (numbers.size() > 0)
     {
@@ -178,7 +171,7 @@ void process_mean_calculation(const vector<double> &numbers)
         cout<<"Can't calculate the mean.\n"<<error_empty_set;
     }
     
-    print_outline();
+    cout<<result_outline;
     cout<<endl;
 }
 
@@ -202,7 +195,7 @@ void calc_mean(const vector<double> &numbers)
 
 void process_search_smallest(const vector<double> &numbers)
 {
-    print_outline();
+    cout<<result_outline;
 
     if (numbers.size() > 0)
     {
@@ -214,7 +207,7 @@ void process_search_smallest(const vector<double> &numbers)
             <<error_empty_set;
     }
     
-    print_outline();
+    cout<<result_outline;
 }
 
 void find_smallest(const vector<double> &numbers)
@@ -236,7 +229,7 @@ void find_smallest(const vector<double> &numbers)
 
 void process_search_largest(const vector<double> &numbers)
 {
-    print_outline();
+    cout<<result_outline;
 
     if (numbers.size() > 0)
     {
@@ -248,7 +241,7 @@ void process_search_largest(const vector<double> &numbers)
             <<error_empty_set;
     }
 
-    print_outline();
+    cout<<result_outline;
 }
 
 void find_largest(const vector<double> &numbers)
@@ -270,14 +263,14 @@ void find_largest(const vector<double> &numbers)
 
 void process_quitting()
 {
-    print_outline();
+    cout<<result_outline;
     cout<<"Thank you!\n";
-    print_outline();
+    cout<<result_outline;
 }
 
 void process_wrong_option()
 {
-    print_outline();
+    cout<<result_outline;
     cout<<"Unknown option, please try again.\n";
-    print_outline();
+    cout<<result_outline;
 }
