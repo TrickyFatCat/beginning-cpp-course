@@ -5,13 +5,15 @@
 using namespace std;
 
 const string result_outline(27, '-');
-const string error_empty_set = "The set is empty. Please add atleast 1 number to the set.";
+const string error_empty_set = "The set is empty. Please add atleast 1 number to the set.\n";
 
 void print_outline();
 void process_adding(vector<double> &numbers);
 void add_number_to_set(vector<double> &numbers, double new_number);
 void print_set_content(const vector<double> &numbers);
 void clean_set(vector<double> &numbers);
+void process_mean_calculation(const vector<double> &numbers);
+void calc_mean(const vector<double> &numbers);
 
 int main()
 {
@@ -60,29 +62,7 @@ int main()
             
             case 'M':
             case 'm':
-                print_outline();
-
-                if (numbers.size() > 0)
-                {
-                    cout<<"Calculating mean of the set..."<<endl;
-
-                    for (auto val: numbers)
-                    {
-                        sum += val;
-                    }
-                    mean = static_cast<double>(sum) / numbers.size();
-
-                    cout<<"Done!"<<endl;
-                    cout<<"The mean of the set is: "<<mean<<endl;
-                }
-                else
-                {
-                    cout<<"Can't calculate the mean."<<endl;
-                    cout<<error_empty_set<<endl;
-                }
-                
-                print_outline();
-                cout<<endl;
+                process_mean_calculation(numbers);
                 break;
 
             case 'S':
@@ -225,4 +205,39 @@ void clean_set(vector<double> &numbers)
     cout<<"Done!\n"<<"All elements were deleted.\n";
     print_outline();
     cout<<endl;
+}
+
+void process_mean_calculation(const vector<double> &numbers)
+{
+    print_outline();
+
+    if (numbers.size() > 0)
+    {
+        calc_mean(numbers);
+    }
+    else
+    {
+        cout<<"Can't calculate the mean.\n"<<error_empty_set;
+    }
+    
+    print_outline();
+    cout<<endl;
+}
+
+void calc_mean(const vector<double> &numbers)
+{
+    double sum {};
+    double mean {};
+
+    cout<<"Calculating mean of the set...\n";
+
+    for (auto val: numbers)
+    {
+        sum += val;
+    }
+
+    mean = sum / numbers.size();
+
+    cout<<"Done!\n"
+        <<"The mean of the set is: "<<mean<<endl;
 }
