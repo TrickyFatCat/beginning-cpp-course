@@ -29,10 +29,6 @@ void find_largest(const vector<double> &numbers);
 int main()
 {
     vector <double> numbers {};
-    double smallest {};
-    double largest {};
-    double mean {};
-    double sum {};
     char option {};
 
     cout<<setprecision(2);
