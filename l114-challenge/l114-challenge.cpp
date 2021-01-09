@@ -9,7 +9,7 @@ const string error_empty_set = "The set is empty. Please add atleast 1 number to
 
 // Menu
 void draw_menu();
-void process_query(const char &option);
+void process_query(const char &option, vector<double> &numbers);
 // Add new number
 void process_adding(vector<double> &numbers);
 void add_number_to_set(vector<double> &numbers, double new_number);
@@ -43,48 +43,7 @@ int main()
     {
         draw_menu();
         cin>>option;
-
-        switch (option)
-        {
-            case 'A':
-            case 'a':
-                process_adding(numbers);
-                break;
-
-            case 'P':
-            case 'p':
-                print_set_content(numbers);
-                break;
-
-            case 'C':
-            case 'c':
-                clean_set(numbers);
-                break;
-            
-            case 'M':
-            case 'm':
-                process_mean_calculation(numbers);
-                break;
-
-            case 'S':
-            case 's':
-                process_search_smallest(numbers);
-                break;
-
-            case 'L':
-            case 'l':
-                process_search_largest(numbers);
-                break;
-
-            case 'Q':
-            case 'q':
-                process_quitting();
-                break;
-
-            default:
-                process_wrong_option();
-                break;
-        }
+        process_query(option, numbers);
     } while (option != 'Q' && option != 'q');
     
     return 0;
@@ -102,7 +61,51 @@ void draw_menu()
         <<"L - find and print the largest number\n"
         <<"Q - Quit the program\n"
         <<"==========================\n";
+}
 
+void process_query(const char &option, vector<double> &numbers)
+{
+    switch (option)
+    {
+        case 'A':
+        case 'a':
+            process_adding(numbers);
+            break;
+
+        case 'P':
+        case 'p':
+            print_set_content(numbers);
+            break;
+
+        case 'C':
+        case 'c':
+            clean_set(numbers);
+            break;
+        
+        case 'M':
+        case 'm':
+            process_mean_calculation(numbers);
+            break;
+
+        case 'S':
+        case 's':
+            process_search_smallest(numbers);
+            break;
+
+        case 'L':
+        case 'l':
+            process_search_largest(numbers);
+            break;
+
+        case 'Q':
+        case 'q':
+            process_quitting();
+            break;
+
+        default:
+            process_wrong_option();
+            break;
+    }
 }
 
 void process_adding(vector<double> &numbers)
