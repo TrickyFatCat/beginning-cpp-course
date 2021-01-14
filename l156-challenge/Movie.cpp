@@ -9,17 +9,17 @@ int Movie::increase_watch_count()
     return ++watch_count;
 }
 
-std::string Movie::get_name(const Movie &movie) const
+std::string Movie::get_name() const
 {
-    return movie.name;
+    return name;
 }
 
-std::string Movie::get_rating(const Movie &movie) const
+std::string Movie::get_rating() const
 {
-    return movie.rating;
+    return rating;
 }
 
-int Movie::get_watch_count(const Movie &movie) const
+int Movie::get_watch_count() const
 {
-    return movie.watch_count;
+    return watch_count;
 }
