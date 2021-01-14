@@ -1,5 +1,5 @@
-#include <Movie.h>
-#include <Movies.h>
+#include "Movie.h"
+#include "Movies.h"
 #include <vector>
 #include <string>
 
@@ -57,7 +57,7 @@ Movie *Movies::add_movie(string name, string rating, int watch_count)
         movie = new Movie(name, rating, watch_count);
         movies_list.push_back(*movie);
     }
-    
+
     return movie;
 }
 

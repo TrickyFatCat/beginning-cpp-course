@@ -10,7 +10,7 @@ private:
     std::string rating;
     int watch_count;
 public:
-    Movie::Movie(std::string name, std::string rating, int watching_count = 0);
+    Movie(std::string name, std::string rating, int watching_count = 0);
     
     int increase_watch_count();
     std::string get_name() const;
