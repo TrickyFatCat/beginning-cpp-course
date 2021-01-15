@@ -12,10 +12,11 @@ class Movies
 private:
     vector<Movie> movies_list;
 public:
-    vector<Movie> get_movies_list() const;
-    Movie * find_movie_by_name(string movie_name);
-    Movie * increase_watch_count(string movie_name);
-    Movie * add_movie(string name, string rating, int watch_count = 0);
+    vector<Movie> *get_movies_list();
+    bool is_list_empty() const;
+    bool is_movie_in_list(string movie_name) const;
+    bool increase_watch_count(string movie_name);
+    bool add_movie(string movie_name, string rating, int watch_count = 0);
 };
 
 #endif

@@ -4,9 +4,9 @@ Movie::Movie(std::string name, std::string rating, int watch_count)
     : name {name}, rating {rating}, watch_count {watch_count}
 {};
 
-int Movie::increase_watch_count()
+void Movie::increase_watch_count()
 {
-    return ++watch_count;
+    ++watch_count;
 }
 
 std::string Movie::get_name() const

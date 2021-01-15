@@ -1,63 +1,63 @@
-#include "Movie.h"
-#include "Movies.h"
 #include <vector>
 #include <string>
+#include "Movie.h"
+#include "Movies.h"
+#include <iostream>
 
 using namespace std;
 
-vector<Movie> Movies::get_movies_list() const
+vector<Movie> * Movies::get_movies_list()
 {
-    return movies_list;
+    return &movies_list;
 }
 
-Movie * Movies::find_movie_by_name(string movie_name)
+bool Movies::is_list_empty() const
 {
-    Movie *result {nullptr};
-    
-    for(Movie movie: movies_list)
+    if(movies_list.size() > 0)
     {
-        if (movie.get_name() == movie_name)
+        return false;
+    }
+
+    return true;
+}
+
+bool Movies::is_movie_in_list(string movie_name) const
+{
+    for(const Movie &movie: movies_list)
+    {
+        if(movie.get_name() == movie_name)
         {
-            result = &movie;
-            break;
+            return true;
         }
     }
 
-    return result;
+    return false;
 }
 
-Movie * Movies::increase_watch_count(string movie_name)
+bool Movies::increase_watch_count(string movie_name)
 {
-    Movie *result {nullptr};
-    Movie *movie {nullptr};
-
-    movie = find_movie_by_name(movie_name);
-
-    if (movie != 0)
+    if(is_movie_in_list(movie_name))
     {
-        movie->increase_watch_count();
-        result = movie;
+        for (Movie &movie: movies_list)
+        {
+            movie.increase_watch_count();
+            return true;
+        }
     }
 
-    return result;
+    return false;
 }
 
-Movie *Movies::add_movie(string name, string rating, int watch_count)
+bool Movies::add_movie(string movie_name, string rating, int watch_count)
 {
-    Movie *movie {nullptr};
+    Movie *new_movie {nullptr};
 
-    movie = find_movie_by_name(name);
-
-    if (movie != 0)
+    if(!is_movie_in_list(movie_name))
     {
-        movie = 0;
-    }
-    else
-    {
-        movie = new Movie(name, rating, watch_count);
-        movies_list.push_back(*movie);
+        new_movie = new Movie(movie_name, rating, watch_count);
+        movies_list.push_back(*new_movie);
+        return true;
     }
 
-    return movie;
+    return 0;
 }
-

@@ -14,7 +14,7 @@ private:
 public:
     Movie(string name, string rating, int watching_count = 0);
     
-    int increase_watch_count();
+    void increase_watch_count();
     string get_name() const;
     string get_rating() const;
     int get_watch_count() const;
