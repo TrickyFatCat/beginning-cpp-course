@@ -66,13 +66,16 @@ void Menu::process_query(MoviesManager &manager, Movies &movies)
 
     case 'H':
     case 'h':
+        draw_menu();
         break;
 
     case 'Q':
     case 'q':
+        cout<<"Thank you!\n";
         break;
     
     default:
+        cout<<"Invalid command. Enter H or h to show help.\n";
         break;
     }
 }
@@ -82,7 +85,7 @@ void Menu::process_add_movie(MoviesManager &manager, Movies &movies)
     string movie_name {};
     string rating {};
     int watch_count {0};
-    
+
     movie_name = inquire_movie_name();
     cout<<"Enter movie rating: ";
     cin>>rating;
