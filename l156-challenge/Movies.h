@@ -17,6 +17,7 @@ public:
     bool is_movie_in_list(string movie_name) const;
     bool increase_watch_count(string movie_name);
     bool add_movie(string movie_name, string rating, int watch_count = 0);
+    bool delete_movie(string movie_name);
 };
 
 #endif

@@ -47,6 +47,7 @@ bool Movies::increase_watch_count(string movie_name)
         {
             movie.increase_watch_count();
             return true;
+            break;
         }
     }
 }
@@ -63,4 +64,24 @@ bool Movies::add_movie(string movie_name, string rating, int watch_count)
     }
 
     return 0;
+}
+
+bool Movies::delete_movie(string movie_name)
+{
+    if(!is_movie_in_list(movie_name))
+    {
+        return false;
+    }
+
+    for(size_t i {0}; i < movies_list.size(); ++i)
+    {
+        if(movies_list.at(i).get_name() == movie_name)
+        {
+            // delete &movies_list.at(i);
+            movies_list.erase(movies_list.begin() + i);
+            movies_list.shrink_to_fit();
+            cout<<movies_list.size()<<endl;
+            return true;
+        }
+    }
 }
