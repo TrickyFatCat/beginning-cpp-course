@@ -77,10 +77,8 @@ bool Movies::delete_movie(string movie_name)
     {
         if(movies_list.at(i).get_name() == movie_name)
         {
-            // delete &movies_list.at(i);
             movies_list.erase(movies_list.begin() + i);
             movies_list.shrink_to_fit();
-            cout<<movies_list.size()<<endl;
             return true;
         }
     }
