@@ -81,11 +81,17 @@ void Menu::process_query(Movies &movies)
 
 void Menu::process_add_movie(Movies &movies)
 {
-    string movie_name {};
     string rating {};
     int watch_count {0};
+    string movie_name = inquire_movie_name();
 
-    movie_name = inquire_movie_name();
+    if (movies.is_movie_in_list(movie_name))
+    {
+        cout<<"This movie is already in the list.\n";
+        show_movie_data(movies, movie_name); 
+        return;
+    }
+
     cout<<"Enter movie rating: ";
     cin>>rating;
     cin.ignore();
@@ -159,6 +165,12 @@ void Menu::process_show_movie_data(Movies &movies)
 
     string movie_name = inquire_movie_name();
 
+    if (!movies.is_movie_in_list(movie_name))
+    {
+        show_error_movie_not_found(movie_name);
+        return;
+    }
+
     show_movie_data(movies, movie_name);
  }
 
@@ -178,7 +190,9 @@ void Menu::process_show_all_movies(Movies &movies)
 
 void Menu::show_movie_data(const Movie &movie) const
 {
+    cout<<"----------------------------\n";
     cout<<movie.get_name()<<" | "<<movie.get_rating()<<" | "<<movie.get_watch_count()<<endl;
+    cout<<"----------------------------\n";
 }
 
 void Menu::show_movie_data(Movies &movies, string movie_name)
