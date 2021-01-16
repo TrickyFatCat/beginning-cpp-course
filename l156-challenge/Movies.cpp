@@ -36,16 +36,19 @@ bool Movies::is_movie_in_list(string movie_name) const
 
 bool Movies::increase_watch_count(string movie_name)
 {
-    if(is_movie_in_list(movie_name))
+    if(!is_movie_in_list(movie_name))
     {
-        for (Movie &movie: movies_list)
+        return false;
+    }
+
+    for (Movie &movie: movies_list)
+    {
+        if(movie.get_name()==movie_name)
         {
             movie.increase_watch_count();
             return true;
         }
     }
-
-    return false;
 }
 
 bool Movies::add_movie(string movie_name, string rating, int watch_count)
