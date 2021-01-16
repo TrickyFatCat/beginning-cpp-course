@@ -62,7 +62,7 @@ bool Movies::add_movie(string movie_name, string rating, int watch_count)
         return true;
     }
 
-    return 0;
+    return false;
 }
 
 bool Movies::delete_movie(string movie_name)
