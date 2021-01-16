@@ -13,6 +13,7 @@ private:
     char query {};
     void process_add_movie(MoviesManager &manager, Movies &movies);
     void process_delete_movie(MoviesManager &manager, Movies &movies);
+    void process_watch_count_increase(MoviesManager &manager, Movies &movies);
 public:
     char get_query() const;
     void draw_menu() const;

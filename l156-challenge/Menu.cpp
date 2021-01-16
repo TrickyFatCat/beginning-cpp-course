@@ -33,12 +33,13 @@ void Menu::process_query(MoviesManager &manager, Movies &movies)
         break;
     
     case 'D':
-        process_delete_movie(manager, movies);
     case 'd':
+        process_delete_movie(manager, movies);
         break;
 
     case 'I':
     case 'i':
+        process_watch_count_increase(manager, movies);
         break;
 
     case 'M':
@@ -78,8 +79,18 @@ void Menu::process_delete_movie(MoviesManager &manager, Movies &movies)
 {
     string movie_name {};
 
-    cout<<"\nEnter movie name: ";
+    cout<<"Enter movie name: ";
     getline(cin, movie_name);
 
     manager.delete_movie(movies, movie_name);
+}
+
+void Menu::process_watch_count_increase(MoviesManager &manager, Movies &movies)
+{
+    string movie_name {};
+
+    cout<<"Enter movie name: ";
+    getline(cin, movie_name);
+
+    manager.increase_watch_count(movies, movie_name);
 }
