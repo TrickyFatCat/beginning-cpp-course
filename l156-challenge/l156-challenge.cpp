@@ -3,7 +3,6 @@
 #include <vector>
 #include "Movie.h"
 #include "Movies.h"
-#include "MoviesManager.h"
 #include "Menu.h"
 
 using namespace std;
@@ -18,6 +17,7 @@ int main()
     {
         menu.process_query(my_movies);
     } while (menu.get_query() != 'Q' && menu.get_query() != 'q');
+    
     cout<<endl;
     return 0;
 }

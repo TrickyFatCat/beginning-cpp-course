@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "Menu.h"
-#include "MoviesManager.h"
 
 string Menu::inquire_movie_name()
 {
