@@ -44,6 +44,7 @@ void Menu::process_query(MoviesManager &manager, Movies &movies)
 
     case 'M':
     case 'm':
+        process_show_movie_data(manager, movies);
         break;
 
     case 'L':
@@ -93,4 +94,14 @@ void Menu::process_watch_count_increase(MoviesManager &manager, Movies &movies)
     getline(cin, movie_name);
 
     manager.increase_watch_count(movies, movie_name);
+}
+
+void Menu::process_show_movie_data(MoviesManager &manager, Movies &movies)
+{
+    string movie_name {};
+
+    cout<<"Enter movie name: ";
+    getline(cin, movie_name);
+    
+    manager.show_movie_data(movies, movie_name);
 }
