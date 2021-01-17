@@ -11,6 +11,8 @@ int main()
 {
     Movies my_movies;
     Menu menu;
+
+    cout<<"Welcome to MovieList v1.0.\n";
     menu.draw_menu();
 
     do

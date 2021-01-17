@@ -20,6 +20,11 @@ bool Movies::is_list_empty() const
     return true;
 }
 
+int Movies::get_list_size() const
+{
+    return movies_list.size();
+}
+
 bool Movies::is_movie_in_list(string movie_name) const
 {
     for(const Movie &movie: movies_list)

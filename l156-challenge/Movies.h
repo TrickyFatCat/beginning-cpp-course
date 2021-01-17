@@ -14,6 +14,7 @@ private:
 public:
     vector<Movie> *get_movies_list();
     bool is_list_empty() const;
+    int get_list_size() const;
     bool is_movie_in_list(string movie_name) const;
     bool increase_watch_count(string movie_name);
     bool add_movie(string movie_name, string rating, int watch_count = 0);
