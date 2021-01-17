@@ -18,59 +18,74 @@ char Menu::get_query() const
     return query;
 }
 
-void Menu::draw_menu() const
+void Menu::draw_menu()
 {
-    cout<<"Welcome to the MovieList v1.0.\n"
+    cout<<draw_border(32, '=')
         <<"A - to add movie to the list\n"
         <<"D - to delete movie from the list\n"
         <<"I - to increase watch count of a movie\n"
         <<"M - to show informasion about a movie\n"
         <<"L - to print the list of movies\n"
         <<"H - to show help\n"
-        <<"Q - to quit the program\n";
+        <<"Q - to quit the program\n"
+        <<draw_border(32, '=');
 }
 
 void Menu::process_query(Movies &movies)
 {
+    cout<<draw_border(32, '=');
     cout<<"Please, enter the command: ";
     cin>>query;
     cin.ignore();
+    cout<<draw_border(32, '=');
 
     switch (query)
     {
     case 'A':
     case 'a':
+        cout<<"You've chosen to add a new movie.\n";
+        cout<<draw_border(32, '-');
         process_add_movie(movies);
         break;
     
     case 'D':
     case 'd':
+        cout<<"You've chosen to delete a movie.\n";
+        cout<<draw_border(32, '-');
         process_delete_movie(movies);
         break;
 
     case 'I':
     case 'i':
+        cout<<"You've chosen to increase watch count.\n";
+        cout<<draw_border(32, '-');
         process_watch_count_increase(movies);
         break;
 
     case 'M':
     case 'm':
+        cout<<"You've chosen to show data of a given movie.\n";
+        cout<<draw_border(32, '-');
         process_show_movie_data(movies);
         break;
 
     case 'L':
     case 'l':
+        cout<<"You have "<<movies.get_list_size()<<" movies in the list.\n";
         process_show_all_movies(movies);
         break;
 
     case 'H':
     case 'h':
+        cout<<"Here is the list of possible commands.\n";
         draw_menu();
         break;
 
     case 'Q':
     case 'q':
-        cout<<"Thank you!\n";
+        cout<<"Quitting the program...\n";
+        cout<<draw_border(32, '-');
+        cout<<"Done! Thank you!\n";
         break;
     
     default:
@@ -98,17 +113,15 @@ void Menu::process_add_movie(Movies &movies)
     cout<<"Enter watch count: ";
     cin>>watch_count;
     cin.ignore();
+
+    cout<<draw_border(32, '-');
+    cout<<"Adding new movie "<<movie_name<<" to the list...\n";
     
     bool result = movies.add_movie(movie_name, rating, watch_count);
 
     if (result)
     {
-        cout<<"\nDone! New movie added.\n";
-        show_movie_data(movies, movie_name);
-    }
-    else
-    {
-        cout<<"This movie is already in the list.\n";
+        cout<<"Done! "<<movie_name<< " has been added to the list.\n";
         show_movie_data(movies, movie_name);
     }
 }
@@ -126,7 +139,9 @@ void Menu::process_delete_movie(Movies &movies)
 
     if(result)
     {
-        cout<<movie_name<<" was deleted from the list.\n";
+        cout<<draw_border(32, '-');
+        cout<<"Deleting movie from the list...\n";
+        cout<<"Done! "<<movie_name<<" was deleted from the list.\n";
     }
     else
     {
@@ -147,7 +162,9 @@ void Menu::process_watch_count_increase(Movies &movies)
 
     if(result)
     {
-        cout<<movie_name<<" watch count was increased.\n";
+        cout<<draw_border(32, '-');
+        cout<<"Increasing watch count...\n";
+        cout<<"Done! "<<movie_name<<" watch count was increased.\n";
     }
     else
     {
@@ -178,7 +195,6 @@ void Menu::process_show_all_movies(Movies &movies)
 {
     if(movies.is_list_empty())
     {
-        show_error_list_is_empty();
         return;
     }
 
@@ -188,11 +204,11 @@ void Menu::process_show_all_movies(Movies &movies)
     } 
 }
 
-void Menu::show_movie_data(const Movie &movie) const
+void Menu::show_movie_data(const Movie &movie)
 {
-    cout<<"----------------------------\n";
+    cout<<draw_border(32, '-');
     cout<<movie.get_name()<<" | "<<movie.get_rating()<<" | "<<movie.get_watch_count()<<endl;
-    cout<<"----------------------------\n";
+    cout<<draw_border(32, '-');
 }
 
 void Menu::show_movie_data(Movies &movies, string movie_name)
@@ -208,11 +224,19 @@ void Menu::show_movie_data(Movies &movies, string movie_name)
 
 void Menu::show_error_list_is_empty()
 {
+   // cout<<draw_border(32, '-');
     cout<<"The list is empty.\n";
 }
 
-void Menu::show_error_movie_not_found(string movie_name) const
+void Menu::show_error_movie_not_found(string movie_name)
 {
+    cout<<draw_border(32, '-');
     cout<<"Movie "<<movie_name<<" not found in the list.\n";
+}
 
+string Menu::draw_border(int char_number, char char_border)
+{
+    string border(char_number, char_border);
+
+    return border + "\n";
 }
