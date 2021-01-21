@@ -14,7 +14,7 @@ bool Savings_Account::deposit(double amount)
     }
     else
     {
-        balance += amount * (interest_rate / 100);
+        balance += amount + amount * interest_rate;
         return true;
     }
 }
