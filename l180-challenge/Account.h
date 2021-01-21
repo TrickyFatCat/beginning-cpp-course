@@ -1,3 +1,6 @@
+#ifndef _ACCOUNT_H_
+#define _ACCOUNT_H_
+
 #include <string>
 
 using namespace std;
@@ -17,3 +20,5 @@ public:
     bool withdraw(double amount);
     double get_balance() const;
 };
+
+#endif
