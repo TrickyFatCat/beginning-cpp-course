@@ -18,6 +18,7 @@ public:
     Account(string name = default_name, double balance = default_balance);
     bool deposit(double amount);
     bool withdraw(double amount);
+    string get_name() const;
     double get_balance() const;
 };
 

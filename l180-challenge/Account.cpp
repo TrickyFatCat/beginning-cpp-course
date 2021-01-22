@@ -33,6 +33,11 @@ bool Account::withdraw(double amount)
     }
 }
 
+string Account::get_name() const
+{
+    return name;
+}
+
 double Account::get_balance() const
 {
     return balance;
