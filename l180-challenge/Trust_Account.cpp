@@ -41,6 +41,7 @@ bool Trust_Account::withdraw(double amount)
     {
         if(Savings_Account::withdraw(amount * withdraw_threshhold))
         {
+            ++withdraw_count;
             return true;    
         }
         else
@@ -52,4 +53,14 @@ bool Trust_Account::withdraw(double amount)
     {
         return false;
     }
+}
+
+ostream &operator<<(ostream &os, const Trust_Account &account)
+{
+    os<<"Account: "<<account.name<<" | "
+        <<account.balance<<" | "
+        <<account.interest_rate<<" | "
+        <<account.withdraw_count<<"/"<<account.withdraw_number;
+
+    return os;
 }
