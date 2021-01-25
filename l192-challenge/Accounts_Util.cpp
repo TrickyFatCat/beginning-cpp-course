@@ -9,14 +9,17 @@ using namespace std;
 // Utility functions for Account class
 void display_all(const vector<Account*> &accounts)
 {
+    cout<<"-----------------------------------------------------------------\n";
     for(const auto account: accounts)
     {
         cout<<*account<<endl;
     }
+    cout<<"-----------------------------------------------------------------\n";
 }
 
 void deposit_all(vector<Account*> &accounts, double amount)
 {
+    cout<<"-----------------------------------------------------------------\n";
     for(auto account: accounts)
     {
         if(account->deposit(amount))
@@ -28,10 +31,12 @@ void deposit_all(vector<Account*> &accounts, double amount)
             cout<<"Failed deposit of "<<amount<<" to "<<*account<<endl;
         }
     }
+    cout<<"-----------------------------------------------------------------\n";
 }
 
 void withdraw_all(vector<Account*> &accounts, double amount)
 {
+    cout<<"-----------------------------------------------------------------\n";
     for(auto account: accounts)
     {
         if(account->withdraw(amount))
@@ -40,7 +45,8 @@ void withdraw_all(vector<Account*> &accounts, double amount)
         }
         else
         {
-            cout<<"Failed withdrawal of"<<amount<<" from "<<*account<<endl;
+            cout<<"Failed withdrawal of "<<amount<<" from "<<*account<<endl;
         }
     }
+    cout<<"-----------------------------------------------------------------\n";
 }
