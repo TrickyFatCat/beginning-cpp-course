@@ -19,8 +19,12 @@ bool Savings_Account::deposit(double amount)
     }
 }
 
-ostream &operator<<(ostream &os, const Savings_Account &account)
+bool Savings_Account::withdraw(double amount)
 {
-    os<<"Account: "<<account.name<<" | "<<account.balance<<" | "<<account.interest_rate;
-    return os;
+    Account::withdraw(amount);
+}
+
+void Savings_Account::print(ostream &os) const
+{
+    os<<name<<" | "<<balance<<" | "<<interest_rate<<endl;
 }
