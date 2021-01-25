@@ -1,13 +1,12 @@
 #ifndef _ACCOUNT_H_
 #define _ACCOUNT_H_
 
-#include <string>
+#include "I_Printable.h"
 
 using namespace std;
 
-class Account
+class Account: public I_Printable
 {
-    friend ostream &operator<<(ostream &os, const Account &account);
 private:
     static constexpr const char *default_name = "Unnamed account";
     static constexpr double default_balance = 0.0;
@@ -16,10 +15,11 @@ protected:
     double balance;
 public:
     Account(string name = default_name, double balance = default_balance);
-    bool deposit(double amount);
-    bool withdraw(double amount);
+    virtual bool deposit(double amount) = 0;
+    virtual bool withdraw(double amount) = 0;
     string get_name() const;
     double get_balance() const;
+    virtual ~Account() = default;
 };
 
 #endif

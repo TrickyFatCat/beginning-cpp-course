@@ -5,7 +5,8 @@
 
 using namespace std;
 
-class I_Printable{
+class I_Printable
+{
     friend ostream &operator<<(ostream &os, const I_Printable &obj);
 public:
     virtual void print(ostream &os) const = 0;
