@@ -21,7 +21,7 @@ bool Savings_Account::deposit(double amount)
 
 bool Savings_Account::withdraw(double amount)
 {
-    Account::withdraw(amount);
+    return Account::withdraw(amount);
 }
 
 void Savings_Account::print(ostream &os) const

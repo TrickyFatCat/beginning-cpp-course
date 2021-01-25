@@ -8,7 +8,7 @@ Checking_Account::Checking_Account(string name, double balance, double withdraw_
 
 bool Checking_Account::deposit(double amount)
 {
-    Account::deposit(amount);
+    return Account::deposit(amount);
 }
 
 bool Checking_Account::withdraw(double amount)
