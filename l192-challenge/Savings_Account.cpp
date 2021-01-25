@@ -8,15 +8,13 @@ Savings_Account::Savings_Account(string name, double balance, double interest_ra
 
 bool Savings_Account::deposit(double amount)
 {
-    if (amount < 0)
+    if (Account::deposit(amount))
     {
-        return false;
-    }
-    else
-    {
-        balance += amount + amount * interest_rate;
+        balance += amount * interest_rate;
         return true;
     }
+    
+    return false;
 }
 
 bool Savings_Account::withdraw(double amount)
@@ -26,5 +24,5 @@ bool Savings_Account::withdraw(double amount)
 
 void Savings_Account::print(ostream &os) const
 {
-    os<<name<<" | "<<balance<<" | "<<interest_rate<<endl;
+    os<<name<<" | "<<balance<<" | "<<interest_rate;
 }
