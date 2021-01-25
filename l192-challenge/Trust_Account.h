@@ -7,7 +7,6 @@ using namespace std;
 
 class Trust_Account: public Savings_Account
 {
-    friend ostream &operator<<(ostream &os, const Trust_Account &accoun);
 private:
     static constexpr const char *default_name = "Unnamed trust account";
     static constexpr double default_balance = 0.0;
@@ -31,8 +30,9 @@ public:
         double deposit_bonus = default_deposit_bonus,
         int withdraw_number = default_withdraw_number,
         double withdraw_threshhold = default_withdraw_threshhold);
-    bool deposit(double amount);
-    bool withdraw(double amount);
+    virtual bool deposit(double amount) override;
+    virtual bool withdraw(double amount) override;
+    virtual void print(ostream &os) const override;
 };
 
 #endif

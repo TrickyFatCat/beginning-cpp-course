@@ -29,10 +29,8 @@ bool Trust_Account::deposit(double amount)
         
         return true;
     }
-    else
-    {
-        return false;
-    }
+    
+    return false;
 }
 
 bool Trust_Account::withdraw(double amount)
@@ -49,18 +47,11 @@ bool Trust_Account::withdraw(double amount)
             return false;
         }
     }
-    else
-    {
-        return false;
-    }
+    
+    return false;
 }
 
-ostream &operator<<(ostream &os, const Trust_Account &account)
+void Trust_Account::print(ostream &os) const
 {
-    os<<"Account: "<<account.name<<" | "
-        <<account.balance<<" | "
-        <<account.interest_rate<<" | "
-        <<account.withdraw_count<<"/"<<account.withdraw_number;
-
-    return os;
+    os<<name<<" | "<<balance<<" | "<<withdraw_count<<"/"<<withdraw_number;
 }
