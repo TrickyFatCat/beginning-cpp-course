@@ -6,22 +6,23 @@ using namespace std;
 Checking_Account::Checking_Account(string name, double balance, double withdraw_fee)
     : Account(name, balance), withdraw_fee {withdraw_fee} {}
 
-bool Checking_Account::withdraw(double amount)
+bool Checking_Account::deposit(double amount)
 {
-    if(amount > balance)
-    {
-        return false;
-    }
-    else
-    {
-        balance -= amount + withdraw_fee;
-        return true;
-    }
+    Account::deposit(amount);
 }
 
-ostream &operator<<(ostream &os, const Checking_Account &account)
+bool Checking_Account::withdraw(double amount)
 {
-    os<<account.name<<" | "<<account.balance<<" | "<<account.withdraw_fee;
+    if(Account::withdraw(amount))
+    {
+        balance -= withdraw_fee;
+        return true;
+    }
 
-    return os;
+    return false;
+}
+
+void Checking_Account::print(ostream &os) const
+{
+    os<<name<<" | "<<balance<<" | "<<withdraw_fee;
 }
