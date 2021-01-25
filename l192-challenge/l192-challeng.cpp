@@ -10,46 +10,54 @@ using namespace std;
 
 int main()
 {
-    vector<Account> accounts;
-    accounts.push_back(Account {"Account 1"});
-    accounts.push_back(Account {"Account 2", 1000.0});
-    accounts.push_back(Account {"Account 3", 2000.0});
+    string header_part_1(15, '>');
+    string header_part_2(15, '<');
+    vector<Account*> savings_accounts{};
+    vector<Account*> checking_accounts{};
+    vector<Account*> trust_accounts{};
 
-    display_all(accounts);
-    deposit_all(accounts, 500);
-    withdraw_all(accounts, 250);
+    cout<<header_part_1<<" Savings Accounts "<<header_part_2<<endl;
 
-    vector<Savings_Account> savings_accounts;
-    savings_accounts.push_back(Savings_Account {"Account 1"});
-    savings_accounts.push_back(Savings_Account {"Account 2", 1000.0});
-    savings_accounts.push_back(Savings_Account {"Account 3", 2000.0, 0.05});
+    Account *sa_0 = new Savings_Account{"Savings Account 0"};
+    Account *sa_1 = new Savings_Account{"Savings Account 1", 1000.0};
+    Account *sa_2 = new Savings_Account{"Savings Account 2", 2000.0, 0.1};
+
+    savings_accounts.push_back(sa_0);
+    savings_accounts.push_back(sa_1);
+    savings_accounts.push_back(sa_2);
 
     display_all(savings_accounts);
-    deposit_all(savings_accounts, 500);
-    withdraw_all(savings_accounts, 250);
+    deposit_all(savings_accounts, 100);
+    withdraw_all(savings_accounts, 200);
+    
+    cout<<header_part_1<<" Checking Accounts "<<header_part_2<<endl;
 
-    vector<Checking_Account> checking_accounts;
-    checking_accounts.push_back(Checking_Account {"Account 1"});
-    checking_accounts.push_back(Checking_Account {"Account 2", 1000.0});
-    checking_accounts.push_back(Checking_Account {"Account 3", 2000.0, 2.0});
+    Account *ca_0 = new Checking_Account{"Checking Account 0"};
+    Account *ca_1 = new Checking_Account{"Checking Account 1", 1000.0};
+    Account *ca_2 = new Checking_Account{"Checking Account 2", 2000.0, 9.99};
+    checking_accounts.push_back(ca_0);
+    checking_accounts.push_back(ca_1);
+    checking_accounts.push_back(ca_2);
 
     display_all(checking_accounts);
-    deposit_all(checking_accounts, 500);
-    withdraw_all(checking_accounts, 250);
+    deposit_all(checking_accounts, 100);
+    withdraw_all(checking_accounts, 200);
+     
+    cout<<header_part_1<<" Trust Accounts "<<header_part_2<<endl;
 
-    vector<Trust_Account> trust_accounts;
-    trust_accounts.push_back(Trust_Account {"Account 1"});
-    trust_accounts.push_back(Trust_Account {"Account 2", 1000.0});
-    trust_accounts.push_back(Trust_Account {"Account 3", 2000.0, 2.0});
+    Account *ta_0 = new Trust_Account{"Trust Account 0"};
+    Account *ta_1 = new Trust_Account{"Trust Account 1", 1000.0};
+    Account *ta_2 = new Trust_Account{"Trust Account 2", 2000.0, 0.1};
+
+    trust_accounts.push_back(ta_0);
+    trust_accounts.push_back(ta_1);
+    trust_accounts.push_back(ta_2);
 
     display_all(trust_accounts);
-    deposit_all(trust_accounts, 5000);
-    withdraw_all(trust_accounts, 250);
-    withdraw_all(trust_accounts, 250);
-    withdraw_all(trust_accounts, 250);
-    withdraw_all(trust_accounts, 250);
-    withdraw_all(trust_accounts, 2500);
-    withdraw_all(trust_accounts, 250);
+    deposit_all(trust_accounts, 100);
+    withdraw_all(trust_accounts, 200);
+    withdraw_all(trust_accounts, 200);
+    withdraw_all(trust_accounts, 200);
     
     cout<<endl;
     return 0;
