@@ -11,12 +11,4 @@ class I_Printable
 public:
     virtual void print(ostream &os) const = 0;
 };
-
-ostream &operator<<(ostream &os, const I_Printable &obj)
-{
-    obj.print(os);
-
-    return os;
-}
-
 #endif
