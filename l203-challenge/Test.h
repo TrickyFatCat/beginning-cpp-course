@@ -9,7 +9,6 @@ public:
     Test();
     Test(int data);
     int get_data() const;
-    ~Test();
 };
 
 #endif

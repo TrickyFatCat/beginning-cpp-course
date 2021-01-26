@@ -6,15 +6,27 @@
 
 unique_ptr<vector<shared_ptr<Test>>> make()
 {
-    // Write your solution here
+    return make_unique<vector<shared_ptr<Test>>>();
 }
 
 void fill(vector<shared_ptr<Test>> &vec, int num)
 {
-    // Write your solution here
+    int data {0};
+
+    for(size_t i {0}; i < num; ++i)
+    {
+        cout<<"Enter data point ["<<i<<"]: ";
+        int data {0};
+        cin>>data;
+
+        vec.push_back(make_shared<Test>(data));
+    }
 }
 
 void display(const vector<shared_ptr<Test>> &vec)
 {
-    // Write your solution here
+    for(const auto &ptr: vec)
+    {
+        cout<<ptr->get_data()<<endl;
+    }
 }
