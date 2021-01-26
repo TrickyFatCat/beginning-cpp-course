@@ -16,7 +16,6 @@ void fill(vector<shared_ptr<Test>> &vec, int num)
     for(size_t i {0}; i < num; ++i)
     {
         cout<<"Enter data point ["<<i<<"]: ";
-        int data {0};
         cin>>data;
 
         vec.push_back(make_shared<Test>(data));
