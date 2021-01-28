@@ -3,6 +3,7 @@
 #include "Account.h"
 #include "Savings_Account.h"
 #include "Accounts_Util.h"
+#include "InsufficentFundsException.h"
 
 using namespace std;
 
@@ -36,6 +37,10 @@ void deposit_all(vector<Account*> &accounts, double amount)
 
 void withdraw_all(vector<Account*> &accounts, double amount)
 {
+    if(amount < 0)
+    {
+        throw InsufficentFundsException();
+    }
     cout<<"-----------------------------------------------------------------\n";
     for(auto account: accounts)
     {

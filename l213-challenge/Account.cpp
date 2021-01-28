@@ -2,6 +2,7 @@
 #include <string>
 #include "Account.h"
 #include "IllegalBalanceException.h"
+#include "InsufficentFundsException.h"
 
 using namespace std;
 
@@ -29,7 +30,12 @@ bool Account::deposit(double amount)
 
 bool Account::withdraw(double amount)
 {
-    if (amount > balance || amount <= 0)
+    if (amount < 0)
+    {
+        throw InsufficentFundsException();
+    }
+
+    if (amount > balance)
     {
         return false;
     }
