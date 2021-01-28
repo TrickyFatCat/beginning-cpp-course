@@ -6,6 +6,7 @@
 #include "Trust_Account.h"
 #include "Checking_Account.h"
 #include "IllegalBalanceException.h"
+#include "InsufficentFundsException.h"
 
 using namespace std;
 
@@ -46,10 +47,45 @@ int main()
     {
         cerr<<exception.what()<<endl;
     }
+    
+    try
+    {
+        savings_accounts.at(0)->withdraw(-100);
+    }
+    catch(const InsufficentFundsException &exception)
+    {
+        cerr<<exception.what()<<endl;
+    }
+
+    try
+    {
+        savings_accounts.at(1)->withdraw(100);
+    }
+    catch(const InsufficentFundsException &exception)
+    {
+        cerr<<exception.what()<<endl;
+    }
 
     display_all(savings_accounts);
     deposit_all(savings_accounts, 100);
-    withdraw_all(savings_accounts, 200);
+
+    try
+    {
+        withdraw_all(savings_accounts, 200);
+    }
+    catch(const InsufficentFundsException &exception)
+    {
+        cerr<<exception.what()<<endl;
+    }
+    
+    try
+    {
+        withdraw_all(savings_accounts, -50);
+    }
+    catch(const InsufficentFundsException &exception)
+    {
+        cerr<<exception.what()<<endl;
+    }
     
    
     cout<<endl;
