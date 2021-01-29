@@ -66,17 +66,12 @@ int main()
 
     std::cout << std::setw((total_width - title_length) / 2) << "" << tours.title << std::endl;
     std::cout << std::endl;
-
-
-    for(auto country : tours.countries) {   // loop through the countries
-        std::cout << country.name << std::endl;
-        for(auto city : country.cities) {       // loop through the cities for each country
-            std::cout << "\t" << city.name 
-                          << "\t" << city.population 
-                          << "\t" << city.cost 
-                          << std::endl;
-        }
-    }
+    
+    std::cout << std::setw(field1_width) << std::left << "Country"
+                << std::setw(field2_width) << std::left << "City"
+                << std::setw(field3_width) << std::left << "Population"
+                << std::setw(field4_width) << std::left << "Price"
+                << std::endl;
 
     std::cout << std::endl << std::endl;
     return 0;
