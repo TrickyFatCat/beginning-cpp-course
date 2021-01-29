@@ -56,8 +56,18 @@ int main()
         }
     };
 
-    // Unformatted display so you can see how to access the vector elements
-    std::cout << tours.title << std::endl;
+    const int total_width {70};
+    const int field1_width {20};
+    const int field2_width {20};
+    const int field3_width {15};
+    const int field4_width {15};
+
+    int title_length = tours.title.length();
+
+    std::cout << std::setw((total_width - title_length) / 2) << "" << tours.title << std::endl;
+    std::cout << std::endl;
+
+
     for(auto country : tours.countries) {   // loop through the countries
         std::cout << country.name << std::endl;
         for(auto city : country.cities) {       // loop through the cities for each country
