@@ -73,6 +73,26 @@ int main()
                 << std::setw(field4_width) << std::left << "Price"
                 << std::endl;
 
+    std::cout << std::setw(total_width)
+                << std::setfill('-')
+                << ""
+                << std::endl;
+
+    std::cout << std::setfill(' ');
+    std::cout << std::setprecision(2) << std::fixed;
+
+    for(Country country : tours.countries)
+    {
+        for(size_t i {0}; i < country.cities.size(); ++i)
+        {
+            std::cout << std::setw(field1_width) << std::left << ((i == 0) ? country.name : "")
+                        << std::setw(field2_width) << std::left << country.cities.at(i).name
+                        << std::setw(field3_width) << std::left << country.cities.at(i).population
+                        << std::setw(field4_width) << std::left << country.cities.at(i).cost
+                        << std::endl;
+        }
+    }
+
     std::cout << std::endl << std::endl;
     return 0;
 }
