@@ -1,12 +1,14 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include "utility.h"
 
 using namespace std;
 
 int main()
 {
     ifstream in_file {};
+    vector<int> score_list;
 
     in_file.open("./files/responses.txt"); // One dot for debug inside VsCode, two dots for binary. (Linux)
 
@@ -21,7 +23,6 @@ int main()
     string student_name {};
     string student_answer {};
     int student_score{0};
-    vector<int> all_scores {};
     int line {1};
     
     
@@ -52,22 +53,13 @@ int main()
                 }
             }
             cout << student_name << " | " << student_answer << " | " << student_score<< endl;
-            all_scores.push_back(student_score);
+            score_list.push_back(student_score);
             student_score= 0;
             line++;
         }
     }
 
-    int sum {0};
-    for(const int &score: all_scores)
-    {
-        sum += score;
-    }
-
-    double average_score{};
-    average_score= static_cast<double>(sum) / all_scores.size();
-
-    cout << "Average score: " << average_score;
+    cout << "Average score: " << calculate_average_score(score_list);
 
     in_file.close();
 
