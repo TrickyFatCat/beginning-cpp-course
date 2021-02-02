@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 #include <vector>
 #include "utility.h"
 
@@ -24,7 +25,14 @@ int main()
     string student_answer {};
     int student_score{0};
     int line {1};
-    
+
+    int field1_length {15};
+    int field2_length {10};
+
+    cout << setw(field1_length) << left << "Student"
+            <<setw(field2_length) << right << "Score"
+            << endl;
+    draw_limits(field1_length + field2_length);
     
     while(in_file >> data)
     {
@@ -45,14 +53,19 @@ int main()
         {
             student_answer = data;
             student_score = calculate_student_score(answer_key, student_answer);
-            cout << student_name << " | " << student_score<< endl;
+            cout << setw(field1_length) << left << student_name
+                    << setw(field2_length) << right << student_score
+                    << endl;
             score_list.push_back(student_score);
             student_score= 0;
             line++;
         }
     }
 
-    cout << "Average score: " << calculate_average_score(score_list);
+    draw_limits(field1_length + field2_length);
+
+    cout << setw(field1_length) << left << "Average score"
+            << setw(field2_length) << right << calculate_average_score(score_list);
 
     in_file.close();
 
