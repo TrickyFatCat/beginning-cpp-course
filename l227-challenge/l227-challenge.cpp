@@ -44,13 +44,7 @@ int main()
         else
         {
             student_answer = data;
-            for(size_t i = 0; i < student_answer.length(); ++i)
-            {
-                if(student_answer.at(i) == answer_key.at(i))
-                {
-                    student_score++;
-                }
-            }
+            student_score = calculate_student_score(answer_key, student_answer);
             cout << student_name << " | " << student_score<< endl;
             score_list.push_back(student_score);
             student_score= 0;
