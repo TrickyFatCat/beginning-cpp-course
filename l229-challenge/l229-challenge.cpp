@@ -27,6 +27,11 @@ int main()
     while(in_file >> current_word)
     {
         word_count++;
+        
+        if(find_substring(current_word, target_word))
+        {
+            std::cout << current_word << std::endl;
+        }
     }
 
     std::cout << word_count << " words has been searched..." << std::endl;
