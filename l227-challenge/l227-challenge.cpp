@@ -19,12 +19,10 @@ int main()
         return 1;
     }
 
-    string data;
     string answer_key {};
     string student_name {};
     string student_answer {};
     int student_score{0};
-    int line {1};
 
     int field1_length {15};
     int field2_length {10};
@@ -33,33 +31,17 @@ int main()
             <<setw(field2_length) << right << "Score"
             << endl;
     draw_limits(field1_length + field2_length);
-    
-    while(in_file >> data)
-    {
-        if(line == 1)
-        {
-            answer_key = data;
-            line++;
-            continue;
-        }
 
-        if(line % 2 == 0)
-        {
-            student_name = data;
-            line++;
-            continue;
-        }
-        else
-        {
-            student_answer = data;
-            student_score = calculate_student_score(answer_key, student_answer);
-            cout << setw(field1_length) << left << student_name
-                    << setw(field2_length) << right << student_score
-                    << endl;
-            score_list.push_back(student_score);
-            student_score= 0;
-            line++;
-        }
+    in_file >> answer_key;
+    
+    while(in_file >> student_name >> student_answer)
+    {
+        student_score = calculate_student_score(answer_key, student_answer);
+        cout << setw(field1_length) << left << student_name
+                << setw(field2_length) << right << student_score
+                << endl;
+        score_list.push_back(student_score);
+        student_score= 0;
     }
 
     draw_limits(field1_length + field2_length);
