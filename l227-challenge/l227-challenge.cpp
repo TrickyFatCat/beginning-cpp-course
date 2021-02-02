@@ -31,7 +31,6 @@ int main()
         if(line == 1)
         {
             answer_key = data;
-            cout << "Answer key: " << answer_key << endl;
             line++;
             continue;
         }
@@ -52,7 +51,7 @@ int main()
                     student_score++;
                 }
             }
-            cout << student_name << " | " << student_answer << " | " << student_score<< endl;
+            cout << student_name << " | " << student_score<< endl;
             score_list.push_back(student_score);
             student_score= 0;
             line++;
