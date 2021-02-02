@@ -1,4 +1,6 @@
 #include <vector>
+#include <iostream>
+#include <iomanip>
 #include "utility.h"
 
 using namespace std;
@@ -28,4 +30,13 @@ double calculate_average_score(vector<int> &score_list)
     }
 
     return static_cast<double>(sum) / score_list.size();
+}
+
+void draw_limits(int field_length)
+{
+    cout << setw(field_length)
+        << setfill('-')
+        << ""
+        << setfill(' ')
+        << endl;
 }
