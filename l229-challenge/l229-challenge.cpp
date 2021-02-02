@@ -19,6 +19,7 @@ int main()
     std::string target_word {};
     std::string current_word {};
     size_t word_count {0};
+    size_t word_match_count {0};
 
     std::cout << "Enter the substring to search for: ";
     std::cin >> target_word;
@@ -30,11 +31,12 @@ int main()
         
         if(find_substring(current_word, target_word))
         {
-            std::cout << current_word << std::endl;
+            word_match_count++;
         }
     }
 
     std::cout << word_count << " words has been searched..." << std::endl;
+    std::cout << "The word " << target_word << " has been found " << word_match_count << " times." << std::endl;
 
     return 0;
 }
