@@ -16,7 +16,20 @@ int main()
         return 1;
     }
 
-    std::cout << "Hello!" << std::endl;
+    std::string target_word {};
+    std::string current_word {};
+    size_t word_count {0};
+
+    std::cout << "Enter the substring to search for: ";
+    std::cin >> target_word;
+    std::cin.ignore();
+
+    while(in_file >> current_word)
+    {
+        word_count++;
+    }
+
+    std::cout << word_count << " words has been searched..." << std::endl;
 
     return 0;
 }
