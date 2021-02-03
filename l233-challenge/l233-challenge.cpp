@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 
 int main()
 {
@@ -21,7 +22,23 @@ int main()
         std::cerr << "Error! Couldn't create the file." << std::endl;
     }
     
-
+    std::string line {};
+    size_t line_number {1};
+    const int line_number_width {8};
+    
+    while(std::getline(in_file, line))
+    {
+        if(line.size() != 1)
+        {
+            out_file << std::setw(line_number_width) << std::left << line_number
+                    << line << std::endl;
+            line_number++;
+        }
+        else
+        {
+            out_file << line << std::endl;
+        }
+    }
 
     return 0;
 }
