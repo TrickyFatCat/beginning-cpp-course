@@ -21,6 +21,6 @@ Release versions contain information about course status, section number and lec
 2. The second number is a section number;
 3. The third number is a lecture number;
 
-> For example. v0.12.78 means that course isn't finished (0), and the program was made for lecture 78 in section 12.
+> For example. v0.12.78 means that the program was made for lecture 78 of section 12.
 
 Right now all binary files are ignored to avoid innecessary commits.
